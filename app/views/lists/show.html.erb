@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 p-5"></div>
-      <h1><%= @list.name %></h1>
+    <div class="row-col-8 py-5">
+
+      <div class="d-flex justify-content-between">
+        <h1><%= @list.name %></h1>
+        <%= link_to lists_path do %>
+          <button class="btn btn-primary">Back to my lists</button>
+        <% end %>
+      </div>
+
       <% @list.movies.each do |movie| %>
         <div class="card m-3" style="width: 18rem;">
           <div class="card-body">
@@ -12,6 +19,7 @@
           </div>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>

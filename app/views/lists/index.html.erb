@@ -1,14 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 p-5"></div>
-      <h1>My List</h1>
+    <div class="col-8 py-5">
+      <h1>My Lists</h1>
       <% @lists.each do |list| %>
-        <div class="card mb-3">
+      <div class="card mb-3">
         <div class="card-body">
           <%= link_to list.name, list_path(list) %>
         </div>
       </div>
       <% end %>
+    </div>
+
+    <div class="col-4 py-5">
+      <h3>Add a new list</h3>
+      <div class="card my-3">
+        <div class="card-body">
+          <%= render "form", list: @list %>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
