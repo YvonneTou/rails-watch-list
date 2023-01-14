@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 p-5"></div>
+      <h1><%= @list.name %></h1>
+      <% @list.movies.each do |movie| %>
+        <div class="card m-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= movie.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Rating: <%= movie.rating %></h6>
+            <p class="card-text"><%= movie.overview %></p>
+            <a href="#" class="card-link">Delete</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
