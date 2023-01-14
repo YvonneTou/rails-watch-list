@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="row-col-8 py-5">
+
+      <div class="d-flex justify-content-between">
+        <h1>Adding a new movie to <%= @list.name %></h1>
+        <%= link_to lists_path do %>
+          <button class="btn btn-primary">Back to my lists</button>
+        <% end %>
+      </div>
+
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.button :submit, class: "btn btn-success" %>
+    <% end %>
+
+    </div>
+  </div>
+</div>

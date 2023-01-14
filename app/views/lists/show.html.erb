@@ -9,16 +9,26 @@
         <% end %>
       </div>
 
-      <% @list.movies.each do |movie| %>
-        <div class="card m-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= movie.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Rating: <%= movie.rating %></h6>
-            <p class="card-text"><%= movie.overview %></p>
-            <a href="#" class="card-link">Delete</a>
+        <%= link_to new_list_bookmark_path(@list) do %>
+          <button class="btn btn-dark mt-3">Add a new movie to list</button>
+        <% end %>
+        <% @list.bookmarks.each do |bookmark| %>
+          <div class="card my-3" style="width: 18rem;">
+            <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="movie poster">
+            <div class="card-body">
+              <h5 class="card-title"><%= bookmark.movie.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= '★' * bookmark.movie.rating %><%= '☆' * (10 - bookmark.movie.rating) %></h6>
+              <p class="card-text"><%= bookmark.movie.overview %></p>
+              <h6 class="card-subtitle mb-2 text-muted">Comment: <%= bookmark.comment %></h6><br>
+
+              <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
+              <%# <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <%# <p><%= bookmark_path(bookmark) %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
 
     </div>
   </div>
