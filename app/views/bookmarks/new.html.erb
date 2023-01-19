@@ -3,9 +3,9 @@
     <div class="row-col-8 py-5">
 
       <div class="d-flex justify-content-between">
-        <h1>Adding a new movie to <%= @list.name %></h1>
-        <%= link_to root_path do %>
-          <button class="btn btn-primary">Back to my lists</button>
+        <span class="d-inline-block text-truncate"><h1>Add new movie to my "<%= @list.name %>"" list</h1></span>
+        <%= link_to list_path(@list) do %>
+          <button class="btn btn-primary text-truncate">Back to list</button>
         <% end %>
       </div>
 

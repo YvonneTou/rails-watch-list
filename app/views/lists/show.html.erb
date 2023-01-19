@@ -5,7 +5,7 @@
       <div class="d-flex justify-content-between">
         <h1><%= @list.name %></h1>
         <%= link_to root_path do %>
-          <button class="btn btn-primary">Back to my lists</button>
+          <button class="btn btn-primary">Back to all my lists</button>
         <% end %>
       </div>
 
@@ -14,6 +14,9 @@
       <% end %>
 
       <div class="d-flex">
+        <% if @list.bookmarks.empty? %>
+          <div class="mt-5"><p>This is no movie in this list yet.</p></div>
+        <% else %>
           <% @list.bookmarks.each do |bookmark| %>
             <div class="card my-3 me-3" style="width: 18rem;">
               <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="movie poster">
@@ -30,6 +33,7 @@
               </div>
             </div>
           <% end %>
+        <% end %>
       </div>
 
     </div>
